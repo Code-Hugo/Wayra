@@ -33,6 +33,12 @@ export default function Wayra() {
     }, 1800)
   }
 
+  const handleDateRangeSelect = (range: { from: Date | undefined; to?: Date | undefined } | undefined) => {
+    if (range) {
+      setDateRange({ from: range.from, to: range.to });
+    }
+  }
+
   const hotels = [
     {
       name: "The Ritz-Carlton",
@@ -125,7 +131,7 @@ export default function Wayra() {
                     <Calendar
                       mode="range"
                       selected={dateRange}
-                      onSelect={setDateRange}
+                      onSelect={handleDateRangeSelect}
                       initialFocus
                       numberOfMonths={2}
                       className="bg-[#18181F] text-zinc-200 rounded-xl p-4"
