@@ -1,0 +1,110 @@
+[
+  {
+    "id": "hotel_001",
+    "name": "Hotel Wayra Palace",
+    "description": "A modern hotel located in the heart of Barcelona with rooftop views and excellent service.",
+    "address": "Carrer de Mallorca, 123, 08036 Barcelona, Spain",
+    "city": "Barcelona",
+    "price": 135,
+    "currency": "EUR",
+    "rating": 4.5,
+    "reviews": 328,
+    "amenities": [
+      "Wi-Fi",
+      "Rooftop Pool",
+      "Breakfast included",
+      "Gym",
+      "Bar",
+      "Concierge"
+    ],
+    "image": "https://images.unsplash.com/photo-1568495248636-643ea27f1e2c",
+    "latitude": 41.390205,
+    "longitude": 2.154007
+  },
+  {
+    "id": "hotel_002",
+    "name": "Coastal Breeze Resort",
+    "description": "Relax by the Mediterranean at this scenic beachfront resort offering spa services and sunset views.",
+    "address": "Passeig Marítim, 42, 08870 Sitges, Spain",
+    "city": "Sitges",
+    "price": 195,
+    "currency": "EUR",
+    "rating": 4.8,
+    "reviews": 212,
+    "amenities": [
+      "Beach access",
+      "Spa",
+      "Free parking",
+      "Pet friendly",
+      "Restaurant",
+      "Cocktail Lounge"
+    ],
+    "image": "https://images.unsplash.com/photo-1501117716987-c8f011d036b5",
+    "latitude": 41.2351,
+    "longitude": 1.8089
+  },
+  {
+    "id": "hotel_003",
+    "name": "Urban Nest Boutique",
+    "description": "A chic, intimate boutique hotel perfect for city explorers and digital nomads.",
+    "address": "Gran Via, 456, 08015 Barcelona, Spain",
+    "city": "Barcelona",
+    "price": 110,
+    "currency": "EUR",
+    "rating": 4.2,
+    "reviews": 180,
+    "amenities": [
+      "Wi-Fi",
+      "Air conditioning",
+      "Bar",
+      "Concierge",
+      "Co-working Space",
+      "Lounge Area"
+    ],
+    "image": "https://images.unsplash.com/photo-1590490360182-c7d41a0ce5c4",
+    "latitude": 41.3851,
+    "longitude": 2.1734
+  },
+  {
+    "id": "hotel_004",
+    "name": "Sierra Sol Retreat",
+    "description": "A tranquil mountain retreat with panoramic views and hiking trails at your doorstep.",
+    "address": "Camino de la Sierra, 5, 29018 Málaga, Spain",
+    "city": "Málaga",
+    "price": 145,
+    "currency": "EUR",
+    "rating": 4.6,
+    "reviews": 267,
+    "amenities": [
+      "Mountain View",
+      "Free breakfast",
+      "Hiking trails",
+      "Yoga classes",
+      "Spa"
+    ],
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "latitude": 36.7213,
+    "longitude": -4.4217
+  },
+  {
+    "id": "hotel_005",
+    "name": "Marina Vista Hotel",
+    "description": "Luxury meets comfort at this harbor-front hotel with gourmet dining and elegant rooms.",
+    "address": "Av. del Puerto, 77, 46024 Valencia, Spain",
+    "city": "Valencia",
+    "price": 175,
+    "currency": "EUR",
+    "rating": 4.7,
+    "reviews": 349,
+    "amenities": [
+      "Harbor View",
+      "Gourmet Restaurant",
+      "Free Wi-Fi",
+      "Fitness Center",
+      "Room Service"
+    ],
+    "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb",
+    "latitude": 39.4699,
+    "longitude": -0.3763
+  }
+]

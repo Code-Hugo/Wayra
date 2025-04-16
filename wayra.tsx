@@ -15,6 +15,8 @@ import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import mockHotels from '../mockHotels.json'
+import { HotelCard, HotelProps } from '@/components/hotel-card'
 
 export default function Wayra() {
   const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({
@@ -38,30 +40,6 @@ export default function Wayra() {
       setDateRange({ from: range.from, to: range.to });
     }
   }
-
-  const hotels = [
-    {
-      name: "The Ritz-Carlton",
-      price: "$429",
-      image: "/placeholder.svg?height=240&width=400",
-      brand: "Marriott",
-      reason: "Best for Marriott Bonvoy. Exceptional service with harbor views.",
-    },
-    {
-      name: "Waldorf Astoria",
-      price: "$389",
-      image: "/placeholder.svg?height=240&width=400",
-      brand: "Hilton",
-      reason: "Perfect for Hilton Honors. Walking distance to downtown attractions.",
-    },
-    {
-      name: "Park Hyatt",
-      price: "$359",
-      image: "/placeholder.svg?height=240&width=400",
-      brand: "Hyatt",
-      reason: "Ideal for World of Hyatt members. Renowned for its spa facilities.",
-    },
-  ]
 
   return (
     <div className="min-h-screen bg-[#0A0A0C] text-zinc-200 p-4 sm:p-6 md:p-8">
@@ -248,52 +226,9 @@ export default function Wayra() {
               </div>
             ) : (
               <div className="space-y-6">
-                <AnimatePresence>
-                  {hotels.map((hotel, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.2 }}
-                      className="group"
-                    >
-                      <Card className="overflow-hidden bg-[#18181F] border-zinc-800 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-900/10 hover:border-zinc-700 rounded-xl">
-                        <div className="relative h-56">
-                          <Image
-                            src={hotel.image || "/placeholder.svg"}
-                            alt={hotel.name}
-                            fill
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0C] to-transparent opacity-60"></div>
-                          <Badge className="absolute top-4 right-4 bg-black/40 text-white border-0 backdrop-blur-md px-3 py-1">
-                            {hotel.brand}
-                          </Badge>
-                        </div>
-                        <CardContent className="p-6">
-                          <div className="flex justify-between items-start mb-3">
-                            <h3 className="font-medium text-xl text-white">{hotel.name}</h3>
-                            <div className="text-right">
-                              <p className="font-light text-indigo-300 text-xl">
-                                {hotel.price}
-                                <span className="text-sm text-zinc-500">/night</span>
-                              </p>
-                            </div>
-                          </div>
-                          <p className="text-zinc-400 text-base leading-relaxed">{hotel.reason}</p>
-                        </CardContent>
-                        <CardFooter className="p-6 pt-0">
-                          <Button
-                            variant="outline"
-                            className="w-full border-zinc-800 bg-[#1A1A22] hover:bg-indigo-500/10 hover:text-indigo-300 hover:border-indigo-500/30 transition-all duration-300 rounded-lg h-12 text-base"
-                          >
-                            Select
-                          </Button>
-                        </CardFooter>
-                      </Card>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
+                {mockHotels.map((hotel: HotelProps, index: number) => (
+                  <HotelCard key={hotel.id} hotel={hotel} index={index} />
+                ))}
               </div>
             )}
           </div>
