@@ -13,25 +13,25 @@ interface ResultsWrapperProps {
 }
 
 export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrapperProps) {
-  const [filter, setFilter] = useState("")
+  const [query, setQuery] = useState("")
 
   if (!showResults && !isLoading) return null
 
-  const normalized = filter.trim().toLowerCase()
-  const filteredHotels = hotels.filter((h) =>
+  const normalized = query.trim().toLowerCase()
+  const filtered = hotels.filter((h) =>
     h.city.toLowerCase().includes(normalized)
   )
 
-  console.log("Query:", filter)
-  console.log("Filtered results:", filteredHotels)
+  console.log("Query:", query)
+  console.log("Filtered results:", filtered)
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-12 md:mt-16" layout>
       <div className="mb-6 max-w-sm">
         <Input
           placeholder="Filter by city"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
       </div>
       <AnimatePresence>
@@ -40,8 +40,8 @@ export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrappe
             ? Array.from({ length: 3 }).map((_, index) => (
                 <HotelSkeleton key={`skeleton-${index}`} />
               ))
-            : filteredHotels.length > 0 ? (
-                filteredHotels.map((hotel, index) => (
+            : filtered.length > 0 ? (
+                filtered.map((hotel, index) => (
                   <HotelCard key={hotel.id} hotel={hotel} index={index} />
                 ))
               ) : (
