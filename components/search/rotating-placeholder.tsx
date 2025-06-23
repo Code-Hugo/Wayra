@@ -7,10 +7,10 @@ export function RotatingPlaceholder() {
   const [placeholderIndex, setPlaceholderIndex] = useState(0)
 
   const examplePrompts = [
-    "3 nights in NYC next week, Marriott points, near downtown",
-    "Chicago weekend trip in June, walkable to restaurants, under $300/night",
-    "San Francisco business trip, Hilton Honors, close to convention center",
-    "Miami beach vacation, ocean view, luxury hotel with good pool",
+    "3 nights in Barcelona under $200 near Eixample",
+    "Madrid weekend under $200 near Gran Vía",
+    "Family stay in Valencia under $150 close to Ciutat Vella",
+    "Beach vacation in Barcelona under $220 near Barceloneta",
   ]
 
   useEffect(() => {
