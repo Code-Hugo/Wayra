@@ -43,7 +43,7 @@ If dependency installation fails, your environment may not have internet access 
 
 ## Deployment
 
-Wayra is live on Vercel. Check it out [here](https://your-vercel-url.vercel.app).
+Wayra is live on Vercel. Check it out at our [demo site](https://your-vercel-url.vercel.app).
 
 ## Tech Stack
 
