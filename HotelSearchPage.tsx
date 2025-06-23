@@ -1,4 +1,4 @@
-import mockHotels from '@/data/mockHotels.json';
+import mockHotels from '@/mockHotels.json';
 import MapComponent from '@/components/MapComponent';
 import { HotelCard, HotelProps } from '@/components/hotel-card';
 
