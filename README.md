@@ -11,7 +11,9 @@ Wayra is an AI-powered travel assistant designed to help users find the perfect 
 
 ## Quick Start
 
-To get started with local development, follow these steps:
+To get started with local development, follow these steps. Ensure you have a
+recent version of **Node.js** installed (v18 or later is recommended) and that
+you can access the npm registry.
 
 1. **Clone the repository**:
    ```bash
@@ -40,6 +42,13 @@ To get started with local development, follow these steps:
 ### `npm install` fails or hangs
 
 If dependency installation fails, your environment may not have internet access to reach the npm registry. Ensure your development environment can access `registry.npmjs.org` or configure an offline mirror with all required packages. Without network access or preinstalled dependencies, the project won't build or run locally.
+
+### Search form loads but never returns results
+
+If the search page begins loading but the list of hotels never appears,
+dependencies may be missing. Run `npm install` in the project root to ensure the
+`next` and `vitest` binaries are available. Without these packages the
+development server and tests will fail to start.
 
 ## Deployment
 
