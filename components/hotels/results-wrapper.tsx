@@ -22,6 +22,9 @@ export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrappe
     h.city.toLowerCase().includes(normalized)
   )
 
+  console.log("Query:", filter)
+  console.log("Filtered results:", filteredHotels)
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-12 md:mt-16" layout>
       <div className="mb-6 max-w-sm">
@@ -37,9 +40,15 @@ export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrappe
             ? Array.from({ length: 3 }).map((_, index) => (
                 <HotelSkeleton key={`skeleton-${index}`} />
               ))
-            : filteredHotels.map((hotel, index) => (
-                <HotelCard key={hotel.id} hotel={hotel} index={index} />
-              ))}
+            : filteredHotels.length > 0 ? (
+                filteredHotels.map((hotel, index) => (
+                  <HotelCard key={hotel.id} hotel={hotel} index={index} />
+                ))
+              ) : (
+                <p className="col-span-full text-center text-sm text-black/60">
+                  No hotels found for your search.
+                </p>
+              )}
         </div>
       </AnimatePresence>
     </motion.div>
