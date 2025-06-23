@@ -1,6 +1,6 @@
-import mockHotels from '@/data/mockHotels.json';
+import mockHotels from '@/data/mock-hotels';
 import MapComponent from '@/components/MapComponent';
-import { HotelCard, HotelProps } from '@/components/hotel-card';
+import { HotelCard, HotelProps } from '@/components/hotels/hotel-card';
 
 export default function HotelSearchPage() {
   return (

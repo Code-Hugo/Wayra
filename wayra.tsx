@@ -15,8 +15,8 @@ import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import mockHotels from '../mockHotels.json'
-import { HotelCard, HotelProps } from '@/components/hotel-card'
+import mockHotels from '@/data/mock-hotels'
+import { HotelCard, HotelProps } from '@/components/hotels/hotel-card'
 
 export default function Wayra() {
   const [dateRange, setDateRange] = useState<{ from: Date | undefined; to: Date | undefined }>({

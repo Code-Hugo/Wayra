@@ -4,15 +4,17 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { HotelBadge } from "@/components/hotels/hotel-badge"
+import { Star } from "lucide-react"
 
 export interface HotelProps {
   id: string
   name: string
-  price: string
+  city: string
+  location: string
+  rating: number
+  price: number
+  description: string
   image: string
-  brand: string
-  reason: string
 }
 
 interface HotelCardProps {
@@ -29,38 +31,29 @@ export function HotelCard({ hotel, index }: HotelCardProps) {
       whileHover={{ y: -4 }}
       className="group"
     >
-      <Card className="rounded-none border border-transparent hover:border-black/10 shadow-none overflow-hidden h-full flex flex-col transition-all duration-300">
+      <Card className="rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 h-full flex flex-col">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
             src={hotel.image || "/placeholder.svg"}
             alt={hotel.name}
             fill
-            className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
+            className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             priority={index < 2}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
-        <CardContent className="px-0 pt-6 pb-4 flex-grow">
-          <div className="flex justify-between items-start mb-1">
-            <h3 className="font-medium text-lg md:text-xl">{hotel.name}</h3>
-            <HotelBadge brand={hotel.brand} />
-          </div>
-          <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4 gap-2">
-            <p className="text-black/60 text-sm">{hotel.reason}</p>
-            <p className="font-light whitespace-nowrap">
-              {hotel.price}
-              <span className="text-xs text-black/60">/night</span>
-            </p>
-          </div>
+        <CardContent className="p-4 flex-grow space-y-2">
+          <h3 className="font-medium text-lg md:text-xl">{hotel.name}</h3>
+          <p className="text-sm text-black/60">{hotel.location}, {hotel.city}</p>
+          <p className="text-sm text-black/80">{hotel.description}</p>
         </CardContent>
-        <CardFooter className="px-0 pt-0 mt-auto">
-          <Button
-            variant="outline"
-            className="w-full h-11 rounded-full border-black/20 hover:border-black hover:bg-white text-black transition-all duration-200 transform active:scale-[0.98]"
-          >
-            Book this hotel
-          </Button>
+        <CardFooter className="px-4 pb-4 pt-0 mt-auto flex items-center justify-between">
+          <div className="flex items-center gap-1 text-sm">
+            <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+            <span>{hotel.rating}</span>
+          </div>
+          <p className="font-semibold">€{hotel.price}</p>
+          <Button size="sm" className="ml-auto rounded-full">Book</Button>
         </CardFooter>
       </Card>
     </motion.div>
