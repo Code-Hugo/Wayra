@@ -22,3 +22,17 @@ export function detectCity(query: string): string | undefined {
     query.toLowerCase().includes(city.toLowerCase())
   )
 }
+
+/**
+ * Parses a search query to extract a known city and optional maximum price.
+ */
+export function parseSearchQuery(query: string): {
+  city?: string
+  maxPrice?: number
+} {
+  const city = detectCity(query)
+  const match = query.match(/under\s*\$?(\d+)/i)
+  const maxPrice = match ? parseInt(match[1], 10) : undefined
+
+  return { city, maxPrice }
+}
