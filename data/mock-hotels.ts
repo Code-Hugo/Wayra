@@ -7,6 +7,8 @@ export interface MockHotel {
   price: number;
   description: string;
   image: string;
+  latitude: number;
+  longitude: number;
 }
 
 export const mockHotels: MockHotel[] = [
@@ -19,6 +21,8 @@ export const mockHotels: MockHotel[] = [
     price: 180,
     description: 'Modern rooms in the heart of Barcelona with easy access to public transport.',
     image: 'https://source.unsplash.com/featured/?hotel,barcelona',
+    latitude: 41.389,
+    longitude: 2.1619,
   },
   {
     id: 'bcn2',
@@ -29,6 +33,8 @@ export const mockHotels: MockHotel[] = [
     price: 210,
     description: 'Beachfront property with stunning Mediterranean views and great nightlife nearby.',
     image: 'https://source.unsplash.com/featured/?hotel,barcelona',
+    latitude: 41.381,
+    longitude: 2.189,
   },
   {
     id: 'mad1',
@@ -39,6 +45,8 @@ export const mockHotels: MockHotel[] = [
     price: 160,
     description: 'Elegant hotel steps from shops and theaters in bustling Gran Vía.',
     image: 'https://source.unsplash.com/featured/?hotel,madrid',
+    latitude: 40.4203,
+    longitude: -3.7058,
   },
   {
     id: 'mad2',
@@ -49,6 +57,8 @@ export const mockHotels: MockHotel[] = [
     price: 220,
     description: 'Luxury accommodations with classic decor near the Royal Palace.',
     image: 'https://source.unsplash.com/featured/?hotel,madrid',
+    latitude: 40.417,
+    longitude: -3.716,
   },
   {
     id: 'val1',
@@ -59,6 +69,8 @@ export const mockHotels: MockHotel[] = [
     price: 200,
     description: 'Resort-style stay with pool and spa next to Valencia\'s famous attractions.',
     image: 'https://source.unsplash.com/featured/?hotel,valencia',
+    latitude: 39.455,
+    longitude: -0.355,
   },
   {
     id: 'val2',
@@ -69,6 +81,8 @@ export const mockHotels: MockHotel[] = [
     price: 130,
     description: 'Charming boutique hotel tucked away in Valencia\'s historic center.',
     image: 'https://source.unsplash.com/featured/?hotel,valencia',
+    latitude: 39.474,
+    longitude: -0.378,
   },
 ];
 
