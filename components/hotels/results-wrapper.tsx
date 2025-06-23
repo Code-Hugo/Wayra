@@ -37,9 +37,15 @@ export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrappe
             ? Array.from({ length: 3 }).map((_, index) => (
                 <HotelSkeleton key={`skeleton-${index}`} />
               ))
-            : filteredHotels.map((hotel, index) => (
-                <HotelCard key={hotel.id} hotel={hotel} index={index} />
-              ))}
+            : filteredHotels.length > 0 ? (
+                filteredHotels.map((hotel, index) => (
+                  <HotelCard key={hotel.id} hotel={hotel} index={index} />
+                ))
+              ) : (
+                <p className="col-span-full text-center text-sm text-black/60">
+                  No hotels found.
+                </p>
+              )}
         </div>
       </AnimatePresence>
     </motion.div>
