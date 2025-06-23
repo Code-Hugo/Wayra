@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { RotatingPlaceholder } from "@/components/search/rotating-placeholder"
 import { TermsCheckbox } from "@/components/search/terms-checkbox"
-import { useDebounce } from "@/hooks/use-debounce"
 
 interface SearchFormProps {
   onSearch: (query: string) => void
@@ -22,7 +21,6 @@ export function SearchForm({ onSearch, isLoading, showResults, initialQuery = ""
   const [termsAccepted, setTermsAccepted] = useState(false)
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
-  const debouncedSearch = useDebounce(onSearch, 2000)
 
   // Validate form and enable/disable submit
   useEffect(() => {
@@ -45,8 +43,7 @@ export function SearchForm({ onSearch, isLoading, showResults, initialQuery = ""
     e.preventDefault()
     if (!isSubmitEnabled || isLoading) return
 
-    // Call the debounced search function
-    debouncedSearch(query.trim())
+    onSearch(query.trim())
   }
 
   return (

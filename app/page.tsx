@@ -14,6 +14,8 @@ export default function Wayra() {
   const [isLoading, setIsLoading] = useState(false)
   const [hotels, setHotels] = useState<HotelProps[]>([])
 
+  const knownCities = ["Barcelona", "Madrid", "London", "Valencia"]
+
   const handleSearch = async (searchQuery: string) => {
     const trimmed = searchQuery.trim()
     if (trimmed === query && showResults) return
@@ -22,9 +24,22 @@ export default function Wayra() {
     setIsLoading(true)
 
     setTimeout(() => {
-      const results = mockHotels.filter((h) =>
-        h.city.toLowerCase().includes(trimmed.toLowerCase())
+      const detected = knownCities.find((city) =>
+        trimmed.toLowerCase().includes(city.toLowerCase())
       )
+
+      console.log("Query:", trimmed)
+      console.log("Detected city:", detected)
+
+      let results: HotelProps[] = []
+      if (detected) {
+        results = mockHotels.filter(
+          (hotel) => hotel.city.toLowerCase() === detected.toLowerCase()
+        )
+      }
+
+      console.log("Filtered results:", results)
+
       setHotels(results)
       setIsLoading(false)
       setShowResults(true)
