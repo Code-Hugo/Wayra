@@ -17,8 +17,9 @@ export function ResultsWrapper({ hotels, isLoading, showResults }: ResultsWrappe
 
   if (!showResults && !isLoading) return null
 
+  const normalized = filter.trim().toLowerCase()
   const filteredHotels = hotels.filter((h) =>
-    h.city.toLowerCase().includes(filter.toLowerCase())
+    h.city.toLowerCase().includes(normalized)
   )
 
   return (

@@ -15,14 +15,15 @@ export default function Wayra() {
   const [hotels, setHotels] = useState<HotelProps[]>([])
 
   const handleSearch = async (searchQuery: string) => {
-    if (searchQuery === query && showResults) return
+    const trimmed = searchQuery.trim()
+    if (trimmed === query && showResults) return
 
-    setQuery(searchQuery)
+    setQuery(trimmed)
     setIsLoading(true)
 
     setTimeout(() => {
       const results = mockHotels.filter((h) =>
-        h.city.toLowerCase().includes(searchQuery.toLowerCase())
+        h.city.toLowerCase().includes(trimmed.toLowerCase())
       )
       setHotels(results)
       setIsLoading(false)
