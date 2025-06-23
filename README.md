@@ -35,6 +35,12 @@ To get started with local development, follow these steps:
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
+## Troubleshooting
+
+### `npm install` fails or hangs
+
+If dependency installation fails, your environment may not have internet access to reach the npm registry. Ensure your development environment can access `registry.npmjs.org` or configure an offline mirror with all required packages. Without network access or preinstalled dependencies, the project won't build or run locally.
+
 ## Deployment
 
 Wayra is live on Vercel. Check it out [here](https://your-vercel-url.vercel.app).
