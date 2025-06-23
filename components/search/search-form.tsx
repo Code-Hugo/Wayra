@@ -46,7 +46,7 @@ export function SearchForm({ onSearch, isLoading, showResults, initialQuery = ""
     if (!isSubmitEnabled || isLoading) return
 
     // Call the debounced search function
-    debouncedSearch(query)
+    debouncedSearch(query.trim())
   }
 
   return (
