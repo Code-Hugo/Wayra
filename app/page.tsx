@@ -7,6 +7,7 @@ import { SearchForm } from "@/components/search/search-form"
 import { ResultsWrapper } from "@/components/hotels/results-wrapper"
 import type { HotelProps } from "@/components/hotels/hotel-card"
 import mockHotels from "@/data/mock-hotels"
+import { detectCity } from "@/lib/utils"
 
 export default function Wayra() {
   const [query, setQuery] = useState("")
@@ -22,9 +23,16 @@ export default function Wayra() {
     setIsLoading(true)
 
     setTimeout(() => {
-      const results = mockHotels.filter((h) =>
-        h.city.toLowerCase().includes(trimmed.toLowerCase())
-      )
+      const detected = detectCity(trimmed)
+      const results = detected
+        ? mockHotels.filter(
+            (h) => h.city.toLowerCase() === detected.toLowerCase()
+          )
+        : []
+
+      console.log("Detected city:", detected)
+      console.log("Filtered results:", results)
+
       setHotels(results)
       setIsLoading(false)
       setShowResults(true)
